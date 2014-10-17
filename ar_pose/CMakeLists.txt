@@ -6,10 +6,12 @@ find_package(catkin REQUIRED COMPONENTS
   libartoolkit 
   geometry_msgs 
   tf 
-  resource_retriever 
+  resource_retriever
   image_transport 
   cv_bridge
-  message_generation)
+  message_generation
+  roscpp)
+
 find_package(OpenCV REQUIRED)
 find_package(GLUT REQUIRED)
 
