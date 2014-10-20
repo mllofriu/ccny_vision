@@ -57,11 +57,11 @@ const double AR_TO_ROS = 0.001;
 
 namespace ar_pose
 {
-  class ARSinglePublisher
+  class ARMultiPublisher
   {
   public:
-    ARSinglePublisher (ros::NodeHandle & n);
-    ~ARSinglePublisher (void);
+    ARMultiPublisher (ros::NodeHandle & n);
+    ~ARMultiPublisher (void);
 
   private:
     void arInit ();

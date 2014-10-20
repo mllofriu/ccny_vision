@@ -23,23 +23,25 @@
 #include "ar_pose/ar_multi.h"
 #include "ar_pose/object.h"
 
+
 int main (int argc, char **argv)
 {
   ros::init (argc, argv, "ar_single");
   ros::NodeHandle n;
-  ar_pose::ARSinglePublisher ar_single (n);
+  ar_pose::ARMultiPublisher ar_multi (n);
   ros::spin ();
   return 0;
 }
 
 namespace ar_pose
 {
-  ARSinglePublisher::ARSinglePublisher (ros::NodeHandle & n):n_ (n), it_ (n_)
+  ARMultiPublisher::ARMultiPublisher (ros::NodeHandle & n):n_ (n), it_ (n_)
   {
     std::string local_path;
     std::string package_path = ros::package::getPath (ROS_PACKAGE_NAME);
 	std::string default_path = "data/object_4x4";
-    ros::NodeHandle n_param ("~");
+    //ros::NodeHandle n_param ("~");
+    ros::NodeHandle n_param = n;
     XmlRpc::XmlRpcValue xml_marker_center;
 
     // **** get parameters
@@ -71,7 +73,7 @@ namespace ar_pose
     // **** subscribe
 
     ROS_INFO ("Subscribing to info topic");
-    sub_ = n_.subscribe (cameraInfoTopic_, 1, &ARSinglePublisher::camInfoCallback, this);
+    sub_ = n_.subscribe (cameraInfoTopic_, 1, &ARMultiPublisher::camInfoCallback, this);
     getCamInfo_ = false;
 
     // **** advertsie 
@@ -83,14 +85,14 @@ namespace ar_pose
 	 }
   }
 
-  ARSinglePublisher::~ARSinglePublisher (void)
+  ARMultiPublisher::~ARMultiPublisher (void)
   {
     //cvReleaseImage(&capture_); //Don't know why but crash when release the image
     arVideoCapStop ();
     arVideoClose ();
   }
 
-  void ARSinglePublisher::camInfoCallback (const sensor_msgs::CameraInfoConstPtr & cam_info)
+  void ARMultiPublisher::camInfoCallback (const sensor_msgs::CameraInfoConstPtr & cam_info)
   {
     if (!getCamInfo_)
     {
@@ -120,12 +122,12 @@ namespace ar_pose
       arInit ();
 
       ROS_INFO ("Subscribing to image topic");
-      cam_sub_ = it_.subscribe (cameraImageTopic_, 1, &ARSinglePublisher::getTransformationCallback, this);
+      cam_sub_ = it_.subscribe (cameraImageTopic_, 1, &ARMultiPublisher::getTransformationCallback, this);
       getCamInfo_ = true;
     }
   }
 
-  void ARSinglePublisher::arInit ()
+  void ARMultiPublisher::arInit ()
   {
     arInitCparam (&cam_param_);
     ROS_INFO ("*** Camera Parameter ***");
@@ -140,7 +142,7 @@ namespace ar_pose
     capture_ = cvCreateImage (sz_, IPL_DEPTH_8U, 4);
   }
 
-  void ARSinglePublisher::getTransformationCallback (const sensor_msgs::ImageConstPtr & image_msg)
+  void ARMultiPublisher::getTransformationCallback (const sensor_msgs::ImageConstPtr & image_msg)
   {
     ARUint8 *dataPtr;
     ARMarkerInfo *marker_info;
