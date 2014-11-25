@@ -168,7 +168,7 @@ namespace ar_pose
 
     try
     {
-      cv_ptr = cv_bridge::toCvCopy(image_msg, 
+      cv_ptr = cv_bridge::toCvCopy(image_msg,
           sensor_msgs::image_encodings::MONO8);
     }
     catch (cv_bridge::Exception& e)

@@ -74,25 +74,26 @@
 #undef  AR_INPUT_1394CAM
 #undef  AR_INPUT_GSTREAMER
 
-#  ifdef AR_INPUT_V4L
-#    ifdef USE_EYETOY
-#      define AR_DEFAULT_PIXEL_FORMAT AR_PIXEL_FORMAT_RGB
-#    else
-#      define AR_DEFAULT_PIXEL_FORMAT AR_PIXEL_FORMAT_BGR
-#    endif
-#  endif
-
-#  ifdef AR_INPUT_DV
-#    define  AR_DEFAULT_PIXEL_FORMAT AR_PIXEL_FORMAT_RGB
-#  endif
-
-#  ifdef AR_INPUT_1394CAM
-#    define  AR_DEFAULT_PIXEL_FORMAT AR_PIXEL_FORMAT_RGB
-#  endif
-
-#  ifdef AR_INPUT_GSTREAMER
-#    define  AR_DEFAULT_PIXEL_FORMAT AR_PIXEL_FORMAT_RGB
-#  endif
+//#  ifdef AR_INPUT_V4L
+//#    ifdef USE_EYETOY
+//#      define AR_DEFAULT_PIXEL_FORMAT AR_PIXEL_FORMAT_RGB
+//#    else
+//#      define AR_DEFAULT_PIXEL_FORMAT AR_PIXEL_FORMAT_BGR
+//#    endif
+//#  endif
+//
+//#  ifdef AR_INPUT_DV
+//#    define  AR_DEFAULT_PIXEL_FORMAT AR_PIXEL_FORMAT_RGB
+//#  endif
+//
+//#  ifdef AR_INPUT_1394CAM
+//#    define  AR_DEFAULT_PIXEL_FORMAT AR_PIXEL_FORMAT_RGB
+//#  endif
+//
+//#  ifdef AR_INPUT_GSTREAMER
+//#    define  AR_DEFAULT_PIXEL_FORMAT AR_PIXEL_FORMAT_RGB
+//#  endif
+#  define AR_DEFAULT_PIXEL_FORMAT AR_PIXEL_FORMAT_MONO
 
 #  undef   AR_BIG_ENDIAN
 #  define  AR_LITTLE_ENDIAN
