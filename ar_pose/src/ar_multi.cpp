@@ -27,7 +27,7 @@
 int main (int argc, char **argv)
 {
   ros::init (argc, argv, "ar_single");
-  ros::NodeHandle n;
+  ros::NodeHandle n("~");
   ar_pose::ARMultiPublisher ar_multi (n);
   ros::spin ();
   return 0;
@@ -40,8 +40,8 @@ namespace ar_pose
     std::string local_path;
     std::string package_path = ros::package::getPath (ROS_PACKAGE_NAME);
 	std::string default_path = "data/object_4x4";
-    ros::NodeHandle n_param ("~");
-    //ros::NodeHandle n_param = n;
+    //ros::NodeHandle n_param ("~");
+    ros::NodeHandle n_param = n;
     XmlRpc::XmlRpcValue xml_marker_center;
 
     // **** get parameters
