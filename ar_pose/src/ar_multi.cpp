@@ -40,8 +40,8 @@ namespace ar_pose
     std::string local_path;
     std::string package_path = ros::package::getPath (ROS_PACKAGE_NAME);
 	std::string default_path = "data/object_4x4";
-    //ros::NodeHandle n_param ("~");
-    ros::NodeHandle n_param = n;
+    ros::NodeHandle n_param ("~");
+    //ros::NodeHandle n_param = n;
     XmlRpc::XmlRpcValue xml_marker_center;
 
     // **** get parameters
@@ -169,7 +169,7 @@ namespace ar_pose
     try
     {
       cv_ptr = cv_bridge::toCvCopy(image_msg, 
-          sensor_msgs::image_encodings::BGR8);
+          sensor_msgs::image_encodings::MONO8);
     }
     catch (cv_bridge::Exception& e)
     {
