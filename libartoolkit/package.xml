@@ -22,7 +22,7 @@
   <run_depend>eigen</run_depend>
 
   <export>
-    <cpp lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib -libAR -libARgsub -libARgsub_lite -libARgsubUtil -libARMulti -libARvideo" cflags="-I${prefix}/include/"/>
+    <cpp lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib -lGLU -lglut -libAR -libARgsub -libARgsub_lite -libARgsubUtil -libARMulti -libARvideo" cflags="-I${prefix}/include/"/>
   </export>
 
 </package>

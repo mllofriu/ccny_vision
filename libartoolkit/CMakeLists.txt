@@ -65,6 +65,7 @@ add_library(ARgsub
 target_link_libraries(ARgsub ${GLUT_LIBRARIES})
 add_library(ARgsub_lite
     src/Gl/gsub_lite.c)
+target_link_libraries(ARgsub_lite ${GLUT_LIBRARIES} ${GLU_LIBRARIES} -lGLU)
 add_library(ARgsubUtil 
     src/Gl/gsubUtil.c)
 add_library(ARvideo 

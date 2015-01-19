@@ -1,7 +1,0 @@
-<library path="lib/ar_multi_nodelet">
-  <class name="ar_pose/ARMultiNodelet" type="ar_pose::ARMultiNodeletNodelet" base_class_type="nodelet::Nodelet">
-    <description>
-      ar_multi nodelet
-    </description>
-  </class>
-</library>
