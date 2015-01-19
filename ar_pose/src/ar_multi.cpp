@@ -208,15 +208,15 @@ namespace ar_pose
       }
 
       // calculate the transform for each marker
-      if (object[i].visible == 0)
-      {
+      //if (object[i].visible == 0)
+      //{
         arGetTransMat (&marker_info[k], object[i].marker_center, object[i].marker_width, object[i].trans);
-      }
-      else
-      {
+      //}
+      //else
+      //{
         arGetTransMatCont (&marker_info[k], object[i].trans,
                            object[i].marker_center, object[i].marker_width, object[i].trans);
-      }
+      //}
       object[i].visible = 1;
 
       double arQuat[4], arPos[3];
@@ -306,6 +306,19 @@ namespace ar_pose
             rvizMarker_.color.b = 0.0f;
             rvizMarker_.color.a = 1.0;
             break;
+	  case 2:
+            rvizMarker_.color.r = 1.0f;
+            rvizMarker_.color.g = 0.0f;
+            rvizMarker_.color.b = 1.0f;
+            rvizMarker_.color.a = 1.0;
+            break;
+ 	  case 3:
+            rvizMarker_.color.r = 1.0f;
+            rvizMarker_.color.g = 1.0f;
+            rvizMarker_.color.b = 0.0f;
+            rvizMarker_.color.a = 1.0;
+            break;
+ 
           default:
             rvizMarker_.color.r = 0.0f;
             rvizMarker_.color.g = 1.0f;
