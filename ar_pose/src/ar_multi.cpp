@@ -164,12 +164,11 @@ namespace ar_pose
     //cvConvertImage(capture,capture,CV_CVTIMG_FLIP);
     dataPtr = (ARUint8 *) capture_->imageData;*/
 
-    cv_bridge::CvImagePtr cv_ptr;
+    cv_bridge::CvImageConstPtr cv_ptr;
 
     try
     {
-      cv_ptr = cv_bridge::toCvCopy(image_msg,
-          sensor_msgs::image_encodings::MONO8);
+      cv_ptr = cv_bridge::toCvShare(image_msg);
     }
     catch (cv_bridge::Exception& e)
     {
