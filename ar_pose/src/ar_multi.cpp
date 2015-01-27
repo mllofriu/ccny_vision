@@ -330,6 +330,7 @@ namespace ar_pose
         ROS_DEBUG ("Published visual marker");
       }
     }
+    arPoseMarkers_.header.stamp = image_msg->header.stamp;
     arMarkerPub_.publish (arPoseMarkers_);
     ROS_DEBUG ("Published ar_multi markers");
   }
