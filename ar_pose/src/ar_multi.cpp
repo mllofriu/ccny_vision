@@ -213,8 +213,8 @@ namespace ar_pose
       //}
       //else
       //{
-        arGetTransMatCont (&marker_info[k], object[i].trans,
-                           object[i].marker_center, object[i].marker_width, object[i].trans);
+//        arGetTransMatCont (&marker_info[k], object[i].trans,
+//                           object[i].marker_center, object[i].marker_width, object[i].trans);
       //}
       object[i].visible = 1;
 
